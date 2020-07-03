@@ -9,6 +9,10 @@
 
 .grid > h1 {
   width: 100%;
+  margin: 40px;
+  font-size: 70px;
+  color: #240115;
+  text-shadow: 0 0 3px #240115, 0 0 5px #240115;
 }
 
 .card {
@@ -24,7 +28,7 @@
 
 .btns {
   width: 100%;
-  margin: 10px;
+  margin-bottom: 20px;
 }
 
 .back {
@@ -34,4 +38,21 @@
   border: 1px solid #87f5fb;
   margin: 10px;
   cursor: pointer;
+}
+
+.back:hover {
+}
+
+.btn {
+  margin: 10px;
+  background-color: #b74f6f;
+  border: 0;
+  width: 200px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background-color: #d6567c;
 }

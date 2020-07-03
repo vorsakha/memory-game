@@ -139,15 +139,17 @@ const Grid = () => {
 
   return (
     <div className="grid">
-      <h1>konichiwa</h1>
+      <h1>記憶</h1>
       <div className="btns">
-        <p>
-          Points: {match} Timer: {count}
-        </p>
+        {count !== null && (
+          <p>
+            Points: {match} Timer: {count}
+          </p>
+        )}
 
         <span>
           <button className="btn " type="button" onClick={() => getCards()}>
-            Load next game
+            Load more cards
           </button>
 
           <button className="btn " type="button" onClick={() => handleStart()}>
