@@ -14,7 +14,7 @@ const Grid = () => {
   const [count, setCount] = useState(null);
   const [start, setStart] = useState(false);
   const [time, setTime] = useState(60);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
   const [topScore, setTop] = useState([]);
 
   useEffect(() => {
@@ -122,7 +122,7 @@ const Grid = () => {
       document.getElementById(key).style.display = `block`;
       document.getElementById(key + 10).style.display = `none`;
 
-      if (current === null) {
+      if (current === null || current.key === key) {
         setCurrent({
           id: id,
           key: key,
@@ -156,7 +156,7 @@ const Grid = () => {
   const handleStart = () => {
     const namePrompt = prompt("Who's playing?");
 
-    if (namePrompt !== null) {
+    if (namePrompt.length !== 0) {
       setName(namePrompt.toUpperCase());
 
       setStart(true);
@@ -166,7 +166,7 @@ const Grid = () => {
     }
   };
 
-  // console.log(name);
+  //console.log(name);
   // console.log(match);
   // console.log(localStorage[name]);
 
