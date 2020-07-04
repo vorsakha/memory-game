@@ -26,6 +26,15 @@
   text-shadow: 0 0 3px rgb(105, 182, 169), 0 0 5px rgb(105, 182, 169);
 }
 
+.cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .card {
   width: 200px;
   height: 250px;
@@ -62,11 +71,20 @@
 .btn {
   background-color: transparent;
   margin: 10px;
-  color: #b74f6f;
+  color: #d6567c;
   border: 0;
   width: 200px;
   padding: 10px 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid white;
+
+  align-items: center;
+}
+
+span .btn:hover {
+  border-bottom: 1px solid #d6567c;
 }
 
 .scoreboard {
@@ -87,14 +105,6 @@ span {
 }
 
 .danger {
-  color: #d6567c;
-}
-
-.danger:hover {
-  color: rgb(105, 182, 169);
-}
-
-.btn:hover {
   color: #d6567c;
 }
 

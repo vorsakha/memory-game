@@ -17,9 +17,9 @@ const Grid = () => {
   const [name, setName] = useState("");
   const [topScore, setTop] = useState([]);
 
-  useEffect(() => {
-    getCards();
-  }, []);
+  // useEffect(() => {
+  //   getCards();
+  // }, []);
 
   useEffect(() => {
     if (count === 0) {
@@ -166,10 +166,6 @@ const Grid = () => {
     }
   };
 
-  //console.log(name);
-  // console.log(match);
-  // console.log(localStorage[name]);
-
   const handleChange = (e) => {
     const diff = e.target.value;
 
@@ -228,6 +224,27 @@ const Grid = () => {
           />
           <label htmlFor="hard"> Hard </label>
         </form>
+        {count === 0 || count === null ? (
+          <button className="btn " type="button" onClick={() => handleStart()}>
+            <span
+              style={{
+                fontWeight: "bolder",
+                fontSize: "20px",
+              }}
+            >
+              PLAY{" "}
+            </span>
+            <i className="larger danger fas fa-power-off"></i>
+          </button>
+        ) : (
+          <button
+            className="btn "
+            type="button"
+            onClick={() => window.location.reload()}
+          >
+            <i className="larger primary fas fa-power-off"></i>
+          </button>
+        )}
 
         <span>
           {count !== null && (
@@ -237,24 +254,6 @@ const Grid = () => {
               </span>
             </button>
           )}
-
-          {count === 0 || count === null ? (
-            <button
-              className="btn "
-              type="button"
-              onClick={() => handleStart()}
-            >
-              <i className="larger danger fas fa-power-off"></i>
-            </button>
-          ) : (
-            <button
-              className="btn "
-              type="button"
-              onClick={() => window.location.reload()}
-            >
-              <i className="larger primary fas fa-power-off"></i>
-            </button>
-          )}
         </span>
         {count !== null && (
           <p className="scoreboard">
@@ -262,25 +261,33 @@ const Grid = () => {
           </p>
         )}
       </div>
-      {cards === null || loading ? (
+      {loading ? (
         <div style={{ width: "100%" }}>
           <Spinner />
         </div>
       ) : (
-        cards.map((data, k) => (
-          <div key={k} id={data} onClick={() => handleClick(k, data)}>
-            <div
-              id={k}
-              className={`card`}
-              style={{
-                backgroundImage: `url(${data})`,
-                display: `none`,
-              }}
-            />
+        cards !== null && (
+          <div className="cards">
+            {cards.map((data, k) => (
+              <div key={k} id={data} onClick={() => handleClick(k, data)}>
+                <div
+                  id={k}
+                  className={`card`}
+                  style={{
+                    backgroundImage: `url(${data})`,
+                    display: `none`,
+                  }}
+                />
 
-            <div id={k + 10} className="back" style={{ display: `block` }} />
+                <div
+                  id={k + 10}
+                  className="back"
+                  style={{ display: `block` }}
+                />
+              </div>
+            ))}
           </div>
-        ))
+        )
       )}
       {localStorage.length > 0 && (
         <table>
