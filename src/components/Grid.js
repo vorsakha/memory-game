@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSpring } from "react-spring";
+//import { useSpring } from "react-spring";
 
 import "./Grid.css";
 
@@ -40,6 +40,7 @@ const Grid = () => {
 
       return () => clearInterval(intervalId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   useEffect(() => {
