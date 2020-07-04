@@ -25,9 +25,12 @@ const Grid = () => {
     if (count === 0) {
       setStart(false);
 
-      Number(localStorage[name]) < Number(match) &&
+      if (localStorage[name] !== undefined) {
+        Number(localStorage[name]) < Number(match) &&
+          localStorage.setItem(name, match);
+      } else {
         localStorage.setItem(name, match);
-
+      }
       window.alert(`Time is up! You've got ${match} points!`);
 
       return window.location.reload();
