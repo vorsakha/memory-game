@@ -17,8 +17,10 @@ const Grid = () => {
   }, []);
 
   useEffect(() => {
-    if (count === 0)
+    if (count === 0) {
+      setStart(false);
       return window.alert(`Time is up! You've got ${match} points!`);
+    }
 
     if (count > 0) {
       const intervalId = setInterval(() => {
@@ -141,21 +143,26 @@ const Grid = () => {
     <div className="grid">
       <h1>記憶</h1>
       <div className="btns">
+        <span>
+          <button className="btn " type="button" onClick={() => getCards()}>
+            <span>
+              Next Cards <i className="fas fa-step-forward"></i>
+            </span>
+          </button>
+
+          <button className="btn " type="button" onClick={() => handleStart()}>
+            {count === 0 || count === null ? (
+              <i className="larger danger fas fa-power-off"></i>
+            ) : (
+              <i className="larger primary fas fa-power-off"></i>
+            )}
+          </button>
+        </span>
         {count !== null && (
           <p>
             Points: {match} Timer: {count}
           </p>
         )}
-
-        <span>
-          <button className="btn " type="button" onClick={() => getCards()}>
-            Load more cards
-          </button>
-
-          <button className="btn " type="button" onClick={() => handleStart()}>
-            New Game
-          </button>
-        </span>
       </div>
       {cards === null || loading ? (
         <p>loading...</p>

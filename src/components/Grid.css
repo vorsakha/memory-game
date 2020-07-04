@@ -10,7 +10,8 @@
 
 .grid > h1 {
   width: 100%;
-  margin: 40px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   font-size: 70px;
   color: #240115;
   text-shadow: 0 0 3px #240115, 0 0 5px #240115;
@@ -22,7 +23,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border: 1px solid #87f5fb;
+  border: 1.5px solid rgb(105, 182, 169);
   margin: 10px;
   cursor: pointer;
 }
@@ -36,7 +37,7 @@
   background-color: #240115;
   width: 200px;
   height: 250px;
-  border: 1px solid #87f5fb;
+  border: 1.5px solid #d6567c;
   margin: 10px;
   cursor: pointer;
 }
@@ -45,15 +46,32 @@
 }
 
 .btn {
+  background-color: transparent;
   margin: 10px;
-  background-color: #b74f6f;
+  color: #b74f6f;
   border: 0;
   width: 200px;
   padding: 10px 20px;
   cursor: pointer;
-  font-weight: 700;
+}
+
+span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.larger {
+  font-size: 30px;
+}
+
+.primary {
+  color: rgb(105, 182, 169);
+}
+
+.danger {
+  color: #d6567c;
 }
 
 .btn:hover {
-  background-color: #d6567c;
+  color: #d6567c;
 }
