@@ -4,6 +4,8 @@ import { useSpring } from "react-spring";
 
 import "./Grid.css";
 
+import Spinner from "./Spinner";
+
 const Grid = () => {
   const [cards, setCards] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,7 +26,7 @@ const Grid = () => {
       setStart(false);
 
       if (localStorage.name) {
-        Number(localStorage.name) > match &&
+        Number(localStorage.name) < match &&
           localStorage.setItem(name.toUpperCase(), match);
       } else {
         localStorage.setItem(name.toUpperCase(), match);
@@ -256,7 +258,9 @@ const Grid = () => {
         )}
       </div>
       {cards === null || loading ? (
-        <p>loading...</p>
+        <div style={{ width: "100%" }}>
+          <Spinner />
+        </div>
       ) : (
         cards.map((data, k) => (
           <div key={k} id={data} onClick={() => handleClick(k, data)}>

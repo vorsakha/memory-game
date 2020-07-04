@@ -121,7 +121,3 @@ th {
 tr:nth-child(even) {
   background-color: rgb(105, 182, 169);
 }
-
-input {
-  background-color: #240115;
-}
