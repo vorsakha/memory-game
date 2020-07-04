@@ -160,7 +160,7 @@ const Grid = () => {
         </span>
         {count !== null && (
           <p>
-            Points: {match} Timer: {count}
+            Points: {match} | Timer: {count}
           </p>
         )}
       </div>
