@@ -66,7 +66,7 @@ const Grid = () => {
       const n = Math.floor(Math.random() * 400 + 1);
 
       const res = await axios.get(
-        `http://api.jikan.moe/v3/anime/${n}/characters_staff`
+        `https://api.jikan.moe/v3/anime/${n}/characters_staff`
       );
 
       const arr = [];
