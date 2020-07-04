@@ -25,12 +25,8 @@ const Grid = () => {
     if (count === 0) {
       setStart(false);
 
-      if (localStorage.name) {
-        Number(localStorage.name) < match &&
-          localStorage.setItem(name.toUpperCase(), match);
-      } else {
-        localStorage.setItem(name.toUpperCase(), match);
-      }
+      Number(localStorage[name]) < Number(match) &&
+        localStorage.setItem(name, match);
 
       window.alert(`Time is up! You've got ${match} points!`);
 
@@ -154,9 +150,10 @@ const Grid = () => {
   };
 
   const handleStart = () => {
-    const name = prompt("Who's playing?");
-    if (name !== null) {
-      setName(name);
+    const namePrompt = prompt("Who's playing?");
+
+    if (namePrompt !== null) {
+      setName(namePrompt.toUpperCase());
 
       setStart(true);
       setCount(time);
@@ -164,6 +161,10 @@ const Grid = () => {
       getCards();
     }
   };
+
+  // console.log(name);
+  // console.log(match);
+  // console.log(localStorage[name]);
 
   const handleChange = (e) => {
     const diff = e.target.value;
